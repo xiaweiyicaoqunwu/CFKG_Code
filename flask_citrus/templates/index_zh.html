@@ -1,0 +1,178 @@
+{% extends "base_zh.html" %}
+
+{% block content %}
+<section id="knowledge-query" class="section">
+    <h2 class="section-title">输入要查询的实体类型和名称</h2>
+    
+    <div class="search-panel">
+        <div class="search-form">
+            <div class="form-group">
+                <label for="entity-type">实体类型:</label>
+                <select id="entity-type" class="form-select">
+                    <option value="">请选择实体类型</option>
+                    {% for entity_type in entity_types %}
+                    <option value="{{ entity_type }}">{{ entity_type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="entity-name">实体名称:</label>
+                <input type="text" id="entity-name" class="form-input" 
+                       placeholder="例如, Cara Cara Navel Orange">
+                <div id="suggestions-container" class="suggestions-container"></div>
+            </div>
+            
+            <div class="form-group" id="cas-group" style="display: none;">
+                <label for="cas-number">CAS号:</label>
+                <input type="text" id="cas-number" class="form-input" 
+                       placeholder="输入CAS号...">
+            </div>
+
+            <div class="form-group">
+                <label for="hop-count">邻居跳数:</label>
+                <select id="hop-count" class="form-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="max-per-hop">每跳最大节点数:</label>
+                <input type="number" id="max-per-hop" class="form-input" 
+                       value="50" min="1" max="500" 
+                       placeholder="每跳最大节点数(1-500)">
+            </div>
+            
+            <button id="search-btn" class="btn btn-primary">
+                <span class="btn-text">查询</span>
+                <div class="btn-loading" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+    
+    <div id="search-results" class="results-container">
+        <div class="graph-container">
+            <svg id="knowledge-graph"></svg>
+        </div>
+        
+        <div id="details-panel" class="details-panel" style="display: none;">
+            <div class="details-header">
+                <h3>详情信息</h3>
+                <button id="close-details" class="btn-close"></button>
+            </div>
+            <div class="details-content" id="details-content"></div>
+        </div>
+    </div>
+</section>
+
+<section id="knowledge-reasoning" class="section" style="display: none;">
+    <h2 class="section-title">预测潜在风味</h2>
+    
+    <div class="search-panel">
+        <div class="search-form">
+            <div class="form-group" style="position: relative;">
+                <label for="inference-citrus-name">柑橘/化合物名称:</label>
+                <input type="text" id="inference-citrus-name" class="form-input" 
+                       placeholder="输入柑橘名称 (例如, Cara Cara Navel Orange) 以预测其风味...">
+                <div id="inference-suggestions" class="suggestions-container"></div>
+            </div>
+            
+            <button id="infer-btn" class="btn btn-primary">
+                <span class="btn-text">预测</span>
+                <div class="btn-loading" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 结果展示区域 -->
+    <div id="inference-results-area" class="results-container" style="display: none; margin-top: 2rem; display: block;">
+        
+        <!-- 标题 -->
+        <div class="inference-header" style="text-align: center; margin-bottom: 25px;">
+            <h3> <span id="target-citrus-display" style="color: #ff8c00;"></span></h3>
+        </div>
+        
+        <!-- 第一部分：已存在的（验证过的）结果 -->
+        <div id="existing-section" style="margin-bottom: 30px; display: none;">
+            <h4 style="border-left: 4px solid #2ecc71; padding-left: 10px; margin-bottom: 15px; color: #27ae60; font-weight: bold;">
+                已在知识图谱中验证（现有链接）
+            </h4>
+            <div id="existing-grid" class="prediction-grid">
+                <!-- 卡片将通过JS插入这里 -->
+            </div>
+        </div>
+
+        <!-- 第二部分：新预测的结果 -->
+        <div id="new-section" style="display: none;">
+            <h4 style="border-left: 4px solid #3498db; padding-left: 10px; margin-bottom: 15px; color: #2980b9; font-weight: bold;">
+                AI 预测 （潜在或缺失的链接）
+            </h4>
+            <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px; margin-left: 14px;">
+                这些链接由 ComplEx 模型以 > 50% 的置信度预测，但目前知识图谱中<b>没有</b>这些链接。
+            </p>
+            <div id="new-grid" class="prediction-grid">
+                <!-- 卡片将通过JS插入这里 -->
+            </div>
+        </div>
+        
+        <!-- 空状态 -->
+        <div id="inference-empty" class="no-result" style="text-align: center; display: none; color: #999;">
+            没有预测出高置信度的风味。
+        </div>
+    </div>
+</section>
+
+
+<section id="qa-system" class="section" style="display: none;">
+    <h2 class="section-title">Citrus Flavor BOT</h2>
+    
+    <div class="qa-container">
+        <div class="qa-history-box" id="qa-history-box">
+            <div class="chat-message gpt-message">
+                <div class="avatar gpt-avatar">BOT</div>
+                <div class="message-bubble">你好呀！我是Citrus Flavor BOT，欢迎向我咨询任何关于柑橘风味，化合物或其它相关问题！</div>
+            </div>
+            </div>
+
+        <div class="qa-input-area">
+            <input type="text" id="question-input" class="form-input chat-input" 
+                   placeholder="询问Citrus Flavor BOT">
+            <button id="ask-btn" class="btn btn-primary chat-send-btn">
+                <span class="btn-text">发送</span>
+            </button>
+        </div>
+        
+        </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+    const ENTITY_COLORS = {{ entity_colors|tojson }};
+    const RELATIONSHIP_TYPES = {{ relationships|tojson }};
+    
+    // 配置 marked (开启代码高亮)
+    marked.setOptions({
+        highlight: function(code, lang) {
+            const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+            return hljs.highlight(code, { language }).value;
+        },
+        langPrefix: 'hljs language-', 
+        breaks: true, // 开启回车换行
+        gfm: true     // 开启 GitHub 风格 Markdown
+    });
+</script>
+{% endblock %}

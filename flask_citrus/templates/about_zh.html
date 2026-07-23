@@ -1,0 +1,154 @@
+{% extends "layout_public_zh.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h2 class="mb-4 text-center" style="color: #006633;">关于柑橘风味知识图谱</h2>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="lead text-muted text-center mb-5">
+                我们旨在利用自然语言处理技术整合多源柑橘风味数据，构建综合知识图谱，并基于此开发知识查询，风味推理和问答功能，以支持农业育种和风味研究。
+            </p>
+
+            <h4 class="mb-3">数据源</h4>
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-0">
+                    <table class="table table-striped table-hover mb-0">
+                        <thead class="table-dark" style="background-color: #006633;">
+                            <tr>
+                                <th scope="col">序号</th>
+                                <th scope="col">名称</th>
+                                <th scope="col">简介</th>
+                                <th scope="col">网址</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>FoodDB</td>
+                                <td>食品数据库，包含柑橘，化合物和风味信息</td>
+                                <td><a href="https://foodb.ca/" target="_blank" class="link-primary">https://foodb.ca/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>柑橘果实品质数据库</td>
+                                <td>柑橘数据库，包含柑橘及所含化合物等信息</td>
+                                <td><a href="http://ics.hzau.edu.cn/citrusquality/" target="_blank" class="link-primary">http://ics.hzau.edu.cn/citrusquality/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>国家柑橘信息资源共享服务平台</td>
+                                <td>包含柑橘口味，口感，产地等种质信息</td>
+                                <td><a href="https://xt.cric.cn/zy/?page=0&yt=1&num=771" target="_blank" class="link-primary">https://xt.cric.cn/zy/?page=0&yt=1&num=771</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>上海交通大学-食品风味创新团队-风味数据库</td>
+                                <td>气味与口味数据库</td>
+                                <td><a href="https://mffi.sjtu.edu.cn/database" target="_blank" class="link-primary">https://mffi.sjtu.edu.cn/database</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>BFU 食品风味数据库2.0</td>
+                                <td>气味与口味数据库</td>
+                                <td><a href="http://foodflavorlab.cn/#/v2/home" target="_blank" class="link-primary">http://foodflavorlab.cn/#/v2/home</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>AromaDB</td>
+                                <td>香味数据库</td>
+                                <td><a href="https://bioinfo.cimap.res.in/aromadb/" target="_blank" class="link-primary">https://bioinfo.cimap.res.in/aromadb/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>OlfactionBase</td>
+                                <td>气味数据库</td>
+                                <td><a href="https://olfab.iiita.ac.in/olfactionbase/" target="_blank" class="link-primary">https://olfab.iiita.ac.in/olfactionbase/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>PungentDB</td>
+                                <td>气味与口味数据库</td>
+                                <td><a href="http://www.pungentdb.org.cn/home" target="_blank" class="link-primary">http://www.pungentdb.org.cn/home</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>IFRA</td>
+                                <td>气味数据库</td>
+                                <td><a href="https://ifrafragrance.org/publications/guidance-reference-document/ifra-fragrance-ingredient-glossary" target="_blank" class="link-primary">https://ifrafragrance.org/publications/guidance-reference-document/ifra-fragrance-ingredient-glossary</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>KEGG</td>
+                                <td>化合物与代谢数据库</td>
+                                <td><a href="https://www.genome.jp/kegg/" target="_blank" class="link-primary">https://www.genome.jp/kegg/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11</th>
+                                <td>PubChem</td>
+                                <td>化合物数据库</td>
+                                <td><a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" class="link-primary">https://pubchem.ncbi.nlm.nih.gov/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12</th>
+                                <td>Sigma-Aldrich</td>
+                                <td>气味数据库</td>
+                                <td><a href="https://www.sigmaaldrich.com/US/en/products/chemistry-and-biochemicals/flavors-and-fragrances" target="_blank" class="link-primary">https://www.sigmaaldrich.com/US/en/products/chemistry-and-biochemicals/flavors-and-fragrances</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">13</th>
+                                <td>ChemTasteDB</td>
+                                <td>口味数据库</td>
+                                <td><a href="https://zenodo.org/records/5747393" target="_blank" class="link-primary">https://zenodo.org/records/5747393</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">14</th>
+                                <td>PlantMolecularTasteDB</td>
+                                <td>口味数据库</td>
+                                <td><a href="https://plantmoleculartastedb.org/" target="_blank" class="link-primary">https://plantmoleculartastedb.org/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">15</th>
+                                <td>KNApSAcK</td>
+                                <td>化合物数据库</td>
+                                <td><a href="http://www.knapsackfamily.com/KNApSAcK/" target="_blank" class="link-primary">http://www.knapsackfamily.com/KNApSAcK/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td>Flavornet</td>
+                                <td>气味数据库</td>
+                                <td><a href="https://www.flavornet.org/" target="_blank" class="link-primary">https://www.flavornet.org/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17</th>
+                                <td>TheGoodScents</td>
+                                <td>风味数据库</td>
+                                <td><a href="https://www.thegoodscentscompany.com/index.html" target="_blank" class="link-primary">https://www.thegoodscentscompany.com/index.html</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h4 class="mb-3">使用指南</h4>
+            <div class="alert alert-light border shadow-sm" role="alert">
+                <ul class="mb-0">
+                    <li>点击首页中的<strong>开始探索</strong>进入知识图谱可视化页面。</li>
+                    <li>在知识查询页面输入要查询的实体名称，然后选择相应的实体类别以执行查询。此外，您还可以指定目标节点的最大邻居跳数，以及每个条目可包含的最大实体数量。将这两个参数设置得过高可能会导致查询速度变慢。</li>
+                    <li>对于查询的子图，单击任何节点或边将在右侧显示相应的数据属性。</li>
+                    <li>在风味推理页面，输入柑橘或化合物名称，系统会使用先进的神经网络推测柑橘可能存在的风味。</li>
+                    <li>Citrus Flavor BOT是一款问答聊天机器人，它会根据我们知识图谱中的知识进行回答。您可以向它询问任何与柑橘相关的问题，例如柑橘的风味、产地、成分等等。</li>
+                </ul>
+            </div>
+
+            <h4 class="mb-3">图片来源</h4>
+            <div class="alert alert-light border shadow-sm" role="alert">
+                <ul class="mb-0">
+                    <li>https://cravingsbychrissyteigen.com</li>
+                    <li>https://zh.freepik.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Citrus Flavor Knowledge Graph{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">🍊 Citrus Flavor Knowledge Graph</h1>
+            <nav class="nav">
+                <a href="{{ url_for('home') }}" class="nav-link home-link">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                Home
+            </a>
+                <a href="#knowledge-query" class="nav-link active">Knowledge Search</a>
+                <a href="#knowledge-reasoning" class="nav-link">Flavor reasoning</a>
+                <a href="#qa-system" class="nav-link">Citrus Flavor BOT</a>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2026 nlp group, College of Informatics, Huazhong Agricultural University. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

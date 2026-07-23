@@ -1,0 +1,154 @@
+{% extends "layout_public.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h2 class="mb-4 text-center" style="color: #006633;">About CFKG</h2>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="lead text-muted text-center mb-5">
+                Our aim is to leverage natural language processing technology to integrate multi-source citrus flavor data, construct a comprehensive knowledge graph, and develop knowledge query, flavor reasoning, and question-answering functions based on this graph to support agricultural breeding and flavor research.
+            </p>
+
+            <h4 class="mb-3">Data Source</h4>
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-0">
+                    <table class="table table-striped table-hover mb-0">
+                        <thead class="table-dark" style="background-color: #006633;">
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">name</th>
+                                <th scope="col">introduction</th>
+                                <th scope="col">url</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>FoodDB</td>
+                                <td>A food database containing information on citrus fruits, compounds, and flavors</td>
+                                <td><a href="https://foodb.ca/" target="_blank" class="link-primary">https://foodb.ca/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Citrus Fruit Quality Database</td>
+                                <td>Citrus database, containing information on citrus fruits and their compounds</td>
+                                <td><a href="http://ics.hzau.edu.cn/citrusquality/" target="_blank" class="link-primary">http://ics.hzau.edu.cn/citrusquality/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>National Citrus Information & Resource Center</td>
+                                <td>Includes citrus information, the taste and mouthfeel of citrus</td>
+                                <td><a href="https://xt.cric.cn/zy/?page=0&yt=1&num=771" target="_blank" class="link-primary">https://xt.cric.cn/zy/?page=0&yt=1&num=771</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>SJTU-mffi</td>
+                                <td>Odor and taste Database</td>
+                                <td><a href="https://mffi.sjtu.edu.cn/database" target="_blank" class="link-primary">https://mffi.sjtu.edu.cn/database</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>BFU Food Flavor Database</td>
+                                <td>Odor and taste Database</td>
+                                <td><a href="http://foodflavorlab.cn/#/v2/home" target="_blank" class="link-primary">http://foodflavorlab.cn/#/v2/home</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>AromaDB</td>
+                                <td>Aroma Database</td>
+                                <td><a href="https://bioinfo.cimap.res.in/aromadb/" target="_blank" class="link-primary">https://bioinfo.cimap.res.in/aromadb/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>OlfactionBase</td>
+                                <td>Odor Database</td>
+                                <td><a href="https://olfab.iiita.ac.in/olfactionbase/" target="_blank" class="link-primary">https://olfab.iiita.ac.in/olfactionbase/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>PungentDB</td>
+                                <td>Odor and taste Database</td>
+                                <td><a href="http://www.pungentdb.org.cn/home" target="_blank" class="link-primary">http://www.pungentdb.org.cn/home</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>IFRA</td>
+                                <td>Odor Database</td>
+                                <td><a href="https://ifrafragrance.org/publications/guidance-reference-document/ifra-fragrance-ingredient-glossary" target="_blank" class="link-primary">https://ifrafragrance.org/publications/guidance-reference-document/ifra-fragrance-ingredient-glossary</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>KEGG</td>
+                                <td>Compound and metabolism Database</td>
+                                <td><a href="https://www.genome.jp/kegg/" target="_blank" class="link-primary">https://www.genome.jp/kegg/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11</th>
+                                <td>PubChem</td>
+                                <td>Compound Database</td>
+                                <td><a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" class="link-primary">https://pubchem.ncbi.nlm.nih.gov/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12</th>
+                                <td>Sigma-Aldrich</td>
+                                <td>Odor Database</td>
+                                <td><a href="https://www.sigmaaldrich.com/US/en/products/chemistry-and-biochemicals/flavors-and-fragrances" target="_blank" class="link-primary">https://www.sigmaaldrich.com/US/en/products/chemistry-and-biochemicals/flavors-and-fragrances</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">13</th>
+                                <td>ChemTasteDB</td>
+                                <td>Taste Database</td>
+                                <td><a href="https://zenodo.org/records/5747393" target="_blank" class="link-primary">https://zenodo.org/records/5747393</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">14</th>
+                                <td>PlantMolecularTasteDB</td>
+                                <td>Taste Database</td>
+                                <td><a href="https://plantmoleculartastedb.org/" target="_blank" class="link-primary">https://plantmoleculartastedb.org/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">15</th>
+                                <td>KNApSAcK</td>
+                                <td>Compound Database</td>
+                                <td><a href="http://www.knapsackfamily.com/KNApSAcK/" target="_blank" class="link-primary">http://www.knapsackfamily.com/KNApSAcK/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td>Flavornet</td>
+                                <td>Odor Database</td>
+                                <td><a href="https://www.flavornet.org/" target="_blank" class="link-primary">https://www.flavornet.org/</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17</th>
+                                <td>TheGoodScents</td>
+                                <td>Flavor Database</td>
+                                <td><a href="https://www.thegoodscentscompany.com/index.html" target="_blank" class="link-primary">https://www.thegoodscentscompany.com/index.html</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h4 class="mb-3">How to Use</h4>
+            <div class="alert alert-light border shadow-sm" role="alert">
+                <ul class="mb-0">
+                    <li>Click <strong>Explore KG</strong> on the homepage to enter the graph visualization interface.</li>
+                    <li>Enter the name of the entity you want to query on the knowledge query page and select the corresponding entity category to perform the query. In addition, you can specify the maximum neighbor hops for the target node, as well as the maximum number of entities each entry can contain. Setting these two parameters too high may result in slower query speeds.</li>
+                    <li>For the queried subgraph, clicking on any node or edge will display the corresponding data attributes on the right.</li>
+                    <li>On the flavor reasoning page, enter the name of the citrus fruit or compound, and the system will use an advanced neural network to predict the possible flavors of the citrus fruit.</li>
+                    <li>Citrus Flavor BOT is a question-and-answer chatbot that responds based on the knowledge in our knowledge graph. You can ask it anything related to citrus, such as citrus flavors, citrus origins, compound content, and more.</li>
+                </ul>
+            </div>
+
+            <h4 class="mb-3">Image Source</h4>
+            <div class="alert alert-light border shadow-sm" role="alert">
+                <ul class="mb-0">
+                    <li>https://cravingsbychrissyteigen.com</li>
+                    <li>https://zh.freepik.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
